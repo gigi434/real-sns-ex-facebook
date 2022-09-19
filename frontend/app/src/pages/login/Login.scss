@@ -1,0 +1,97 @@
+$loginColor:#42428b;
+$accountRegister: #3c8b50;
+
+
+.login {
+  &-container {
+    width: 100vw; // viewport width:ビューポートの幅に対する割合　基準は100vw　例）iPhone5sは320pxであるため、10vw選んだら32px
+    height: 100vh; // viewport height: ビューポートの高さに対する割合 基準は100vh　
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f2f5;
+  }
+  &-wrapper {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+  }
+  &-page {
+    &__service-title,
+    &__login-form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    &__login-form {
+      height: 400px;
+      padding: 20px;
+      justify-content: space-between;
+    }
+  }
+}
+
+
+.service-title {
+  &__logo {
+    font-size: 50px;
+    font-weight: 800px;
+    margin-bottom: 10px;
+  }
+  &__desc {
+    font-size: 24px;
+  }
+}
+
+.login-form {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 3px 7px 13px -10px #404755;
+  &__message {
+    text-align: center;
+    font-weight: 550;
+    font-size: 20px;
+    margin: 5px 0;
+  }
+  &__input {
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 18px;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__loginButton {
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: $loginColor;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  &__forgotText {
+    text-align: center;
+    color: $loginColor;
+  }
+  &__registerButton {
+    width: 70%;
+    align-self: center;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: $accountRegister;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+}

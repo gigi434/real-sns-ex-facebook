@@ -1,0 +1,8 @@
+FROM node:16.13.0-alpine3.12
+
+ENV NODE_VERSION 14.18.1
+
+WORKDIR /home/node/real-sns-ex-facebook/backend/app
+RUN chown -R node:node /home/node/real-sns-ex-facebook/backend/app
+
+USER node

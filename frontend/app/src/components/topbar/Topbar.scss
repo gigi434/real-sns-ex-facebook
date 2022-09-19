@@ -1,0 +1,84 @@
+$cTopbar: #2c517e;
+
+.topbar {
+  background-color: $cTopbar;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  &-logo {
+    flex: 3;
+    &__title {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+  }
+  &-search-form {
+    flex: 5;
+    &__items {
+      display: flex;
+    }
+    &__bar {
+      width: 100%;
+      background-color: white;
+      border-radius: 25px;
+      align-items: center;
+      display: flex;
+    }
+    &__icon {
+      font-size: 20px !important;
+      margin-left: 10px;
+      margin-right: 5px;
+    }
+    &__input {
+      border: none;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  &-notification {
+      flex: 4;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      color: white;
+  
+      &-item {
+        display: flex;
+        align-items: center;
+        &__icon {
+          margin-right: 15px;
+          margin-top: 5px;
+          cursor: pointer;
+          position: relative;
+        }
+    
+        &__badge {
+          position: absolute;
+          top: -3px;
+          right: -5px;
+          background-color: red;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+        }
+      }
+    }
+  &__profile-image {
+    width: 2.5em;
+    height: 2.5em;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+}

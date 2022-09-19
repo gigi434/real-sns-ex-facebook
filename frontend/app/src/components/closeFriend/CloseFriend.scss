@@ -1,0 +1,14 @@
+
+.close-friend-list-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+  &__img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+  }
+}

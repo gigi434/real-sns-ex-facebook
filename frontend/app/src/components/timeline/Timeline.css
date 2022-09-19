@@ -1,0 +1,10 @@
+.timeline {
+  -webkit-box-flex: 4.5;
+      -ms-flex: 4.5;
+          flex: 4.5;
+}
+
+.timeline-wrapper {
+  padding: 20px;
+}
+/*# sourceMappingURL=Timeline.css.map */

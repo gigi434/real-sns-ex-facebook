@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  frontend:
+    build: 
+      context: .
+      dockerfile: ./frontend/Dockerfile.prod
+    container_name: react_container
+    ports:
+      # node.js/React
+      - '8080:8080'
+    # volumes:
+    #   - './frontend/app:/home/node/real-sns-ex-facebook/frontend/app'
+    # working_dir: /home/node/real-sns-ex-facebook/frontend/app
+    tty: true
+    stdin_open: true
+
+  backend:
+    build: 
+      context: .
+      dockerfile: ./backend/Dockerfile.prod
+    container_name: express_container
+    ports:
+      # node.js/Express
+      - '3000:3000'
+    # volumes:
+    #   - './backend/app:/home/node/real-sns-ex-facebook/backend/app'
+    # working_dir: /home/node/real-sns-ex-facebook/backend/app
+    tty: true
+    stdin_open: true

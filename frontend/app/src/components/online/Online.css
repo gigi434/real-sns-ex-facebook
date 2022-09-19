@@ -1,0 +1,38 @@
+.online-friend__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 15px;
+}
+
+.online-friend__icon {
+  margin-right: 10px;
+  position: relative;
+}
+
+.online-friend__icon--online {
+  background-color: purple;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50px;
+  top: -2px;
+  left: 0px;
+  border: 2px solid white;
+}
+
+.online-friend__profileImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.online-friend__userName {
+  font-weight: 550;
+}
+/*# sourceMappingURL=Online.css.map */

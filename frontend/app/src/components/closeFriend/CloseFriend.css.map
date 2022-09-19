@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,uBAAuB,CAAC;EACtB,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,aAAa,EAAE,IAAI;EACnB,MAAM,EAAE,OAAO;CAQhB;;AAPE,AAAD,4BAAM,CAAC;EACL,aAAa,EAAE,GAAG;EAClB,UAAU,EAAE,KAAK;EACjB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,YAAY,EAAE,IAAI;CACnB",
+    "sources": [
+        "CloseFriend.scss"
+    ],
+    "names": [],
+    "file": "CloseFriend.css"
+}

@@ -1,0 +1,35 @@
+version: '3'
+
+# volumes:
+#   react-node-modules:
+#   express-node-modules:
+
+services:
+  frontend:
+    build: 
+      context: .
+      dockerfile: ./frontend/Dockerfile.dev
+    container_name: react_container
+    ports:
+      # node.js/React
+      - '8080:8080'
+    volumes:
+      - './frontend/app:/home/node/real-sns-ex-facebook/frontend/app'
+      # TODO ホストの権限によりnode_modulesディレクトリの権限が変わってしまうため、react-node-modulesディレクトリに保存=>名前付きボリュームにより権限がrootからnodeに変更不可であることが問題
+      # - 'react-node-modules:/home/node/real-sns-ex-facebook/frontend/app/node_modules'
+    tty: true
+    stdin_open: true
+
+  backend:
+    build: 
+      context: .
+      dockerfile: ./backend/Dockerfile.dev
+    container_name: express_container
+    ports:
+      # node.js/Express
+      - '3000:3000'
+    volumes:
+      - './backend/app:/home/node/real-sns-ex-facebook/backend/app'
+      # - 'express-node-modules:/home/node/real-sns-ex-facebook/backend/app/node_modules'
+    tty: true
+    stdin_open: true

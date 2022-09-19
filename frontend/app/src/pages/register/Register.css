@@ -1,0 +1,114 @@
+.register-container {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #f0f2f5;
+}
+
+.register-wrapper {
+  width: 70%;
+  height: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.register-page__service-title, .register-page__register-form {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.register-page__register-form {
+  height: 400px;
+  padding: 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.service-title__logo {
+  font-size: 50px;
+  font-weight: 800px;
+  margin-bottom: 10px;
+}
+
+.service-title__desc {
+  font-size: 24px;
+}
+
+.register-form {
+  background-color: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 3px 7px 13px -10px #404755;
+          box-shadow: 3px 7px 13px -10px #404755;
+}
+
+.register-form__message {
+  text-align: center;
+  font-weight: 550;
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+.register-form__input {
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: 18px;
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.register-form__input:focus {
+  outline: none;
+}
+
+.register-form__loginButton {
+  width: 70%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #42428b;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.register-form__signUpButton {
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #3c8b50;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=Register.css.map */
