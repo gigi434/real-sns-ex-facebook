@@ -31,7 +31,7 @@ export default function createAuthRouter() {
             if(!user) return res.status(404).send("ユーザーが見つかりません");
 
             // パスワードが等しければログイン処理を行う
-            const vailedPassword = req.body.password === req.body.password;
+            const vailedPassword = req.body.password === user.password;
             if(!vailedPassword) return res.status(400).send("パスワードが違います")
 
             return res.status(200).json(user);
