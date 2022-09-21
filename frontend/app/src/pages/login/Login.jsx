@@ -1,17 +1,21 @@
 import React, { useRef } from "react";
+import { useDispatch } from "react-redux";
 
 import "./Login.css"
+import { getUserData } from "../../store/modules/Auth";
 
 export default function Login() {
     // useRefを使用してDOMを参照することでinput要素の値を監視する
     // useStateとは違い、値が変更されても再レンダリングは行なわない
     const email = useRef();
     const password = useRef();
-
-    const handleSubmit = (e) => {
+    const dispatch = useDispatch();
+    
+    const handleSubmit = e => {
         e.preventDefault();
-
+        const user = dispatch(getUserData({ email: email.current.value, password: password.current.value })) // getUserData関数によってActionが作成される
     }
+    
     return (
         <section className="login-container">
             <section className="login-wrapper">
