@@ -14,7 +14,7 @@ export default function createAuthRouter() {
                 email: req.body.email,
                 password: req.body.password,
             })
-
+            // ドキュメント（レコード）作成
             const user = await newUser.save();
 
             return res.status(200).json(user)
