@@ -1,27 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
 const registerUserSlice = createSlice({
     name: "registerUser",
     initialState: {
         username: null,
         email: null,
         password: null,
+        profilePicture: "",
+        error: false,
     },
     reducers: {
         registerSuccess(state, { payload }) {
             return {
+                ...state,
                 username: payload.username,
                 email: payload.email,
                 password: payload.password,
-                error: false,
+                profilePicture: `${PUBLIC_FOLDER}/person/noAvatar.png`,
             };
         },
         registerError(state, { payload }) {
             return {
-                username: null,
-                email: null,
-                password: null,
+                ...state,
                 error: payload,
             }
         }
@@ -30,11 +32,11 @@ const registerUserSlice = createSlice({
 
 // middleware
 export const registerUser = (payload) => {
-    console.log(payload)
     return async (dispatch, getstate) => {
         try {
-            const response = await axios.post("auth/register", payload);
-            dispatch(registerSuccess(response.data));
+            dispatch(registerSuccess(payload))
+            console.log(getstate())
+            const response = await axios.post("auth/register", getstate().register);
             console.log(response.data)
         } catch (err) {
             dispatch(registerError(err));

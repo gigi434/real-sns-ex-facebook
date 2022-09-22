@@ -13,6 +13,7 @@ export default function createAuthRouter() {
                 username: req.body.username,
                 email: req.body.email,
                 password: req.body.password,
+                profilePicture: req.body.profilePicture,
             })
             // ドキュメント（レコード）作成
             const user = await newUser.save();

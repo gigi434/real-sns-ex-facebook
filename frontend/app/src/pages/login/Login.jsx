@@ -13,7 +13,7 @@ export default function Login() {
     
     const handleSubmit = e => {
         e.preventDefault();
-        const user = dispatch(getUserData({ email: email.current.value, password: password.current.value })) // getUserData関数によってActionが作成される
+        dispatch(getUserData({ email: email.current.value, password: password.current.value })) // getUserData関数によってActionが作成される
     }
     
     return (
