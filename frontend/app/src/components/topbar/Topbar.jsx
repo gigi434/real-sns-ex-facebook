@@ -2,8 +2,11 @@ import React from "react";
 import { Chat, Notifications, Search } from "@mui/icons-material";
 import "./Topbar.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Topbar() {
+    const user = useSelector(state => state.auth.user)
+    const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
     return (
         <div className="topbar">
             <div className="topbar-logo">
@@ -30,7 +33,7 @@ export default function Topbar() {
                         <span className="topbar-notification-item__badge">2</span>
                     </div>
                 </div>
-                <img className="topbar__profile-image" src="/assets/person/1.jpeg" alt="" />
+                <img className="topbar__profile-image" src={`${PUBLIC_FOLDER}${user.profilePicture}`} alt="" />
             </div>
         </div>
     )
