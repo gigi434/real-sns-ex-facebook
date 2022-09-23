@@ -37,7 +37,7 @@ export default function Profile() {
                                 className="profile-detail__coverImg"
                             />
                             <img
-                                src={user.profilePicture || PUBLIC_FOLDER + "/person/noAvatar.png"}
+                                src={user.profilePicture}
                                 alt="" 
                                 className="profile-detail__userImg" 
                             />
