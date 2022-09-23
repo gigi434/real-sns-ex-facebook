@@ -32,7 +32,7 @@ export default function Post({ post }) {
                 <div className="post-top">
                     <div className="post-top-left__profile">
                         <Link to={`/profile/${user.username}`}>
-                            <img src={user.profilePicture} alt="" className="post-top-left__profileImg" />
+                            <img src={`${PUBLIC_FOLDER}${user.profilePicture}`} alt="" className="post-top-left__profileImg" />
                         </Link>
                         <span className="post-top-left__profileName">{user.username}</span>
                         <span className="post-top-left__postedDate">{timeago.format(post.createdAt)}</span>

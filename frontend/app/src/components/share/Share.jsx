@@ -1,15 +1,17 @@
 import { Analytics, Face, Gif, Image } from "@mui/icons-material";
 import React from "react";
+import { useSelector } from "react-redux";
 
 import "./Share.css"
 
 export default function Share() {
+    const user = useSelector(state => state.auth.user);
     const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
     return (
         <section className="container">
             <div className="wrapper">
                 <div className="top">
-                    <img src={PUBLIC_FOLDER + "/person/noAvatar.png"} alt="" className="top__img" />
+                    <img src={`${PUBLIC_FOLDER}${user.profilePicture}`} alt="" className="top__img" />
                     <input type="text" className="top__input" placeholder="今何してるの？"/>
                 </div>
                 <hr className="hr"></hr>

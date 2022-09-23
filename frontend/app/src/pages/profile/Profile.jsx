@@ -32,12 +32,12 @@ export default function Profile() {
                     <div className="profile-item">
                         <div className="profile-detail">
                             <img
-                                src={user.coverPicture || PUBLIC_FOLDER + "/post/3.jpeg"} 
+                                src={`${PUBLIC_FOLDER}${user.coverPicture}` || PUBLIC_FOLDER + "/post/3.jpeg"} 
                                 alt="" 
                                 className="profile-detail__coverImg"
                             />
                             <img
-                                src={user.profilePicture}
+                                src={`${PUBLIC_FOLDER}${user.profilePicture}`}
                                 alt="" 
                                 className="profile-detail__userImg" 
                             />
