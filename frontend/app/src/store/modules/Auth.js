@@ -4,7 +4,22 @@ import axios from "axios";
 const authReducer = createSlice({
     name: "auth",
     initialState: {
-        user: null,
+        user: {
+            // TODO 毎回ブラウザの更新ごとにログインをする必要があるため記載した　使用時には空にすること
+            _id: "6314be3ce9738babfe4fa4fd",
+            username: "shincode",
+            email: "JohnDoe@gmail.com",
+            password: "password123",
+            profilePicture: "/assets/person/1.jpeg",
+            coverPicture: "/assets/post/3.jpeg",
+            followers: [],
+            followings: [],
+            isAdmin: false,
+            createdAt: "2022-09-04T15:03:24.997+00:00",
+            updatedAt: "2022-09-18T11:38:00.025+00:00",
+            __v: 0,
+            desc: "Udemy講師",
+        },
         isFetching: false,
         error: false,
     },
