@@ -2,39 +2,51 @@ import { MoreVert } from "@mui/icons-material";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import * as timeago from "timeago.js"
+import { useDispatch } from "react-redux";
 
 import "./Post.css"
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { likePost } from "../../store/modules/Post";
 
 export default function Post({ post }) {
     const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
     const [like, setLike] = useState(post.likes.length); // いいねボタンを押している人数
     const [isLiked, setIsLiked] = useState(false); //既にいいねボタンを押しているか
-    const handleLike = () => {
-        setLike(isLiked ? like - 1 : like + 1);
-        setIsLiked(!isLiked)
-    }
+    const currentUser = useSelector(state => state.auth.user);
+    const dispatch = useDispatch();
 
-    // 自身のユーザー情報を一回だけ取得する
-    const [user, setUser] = useState({});
+    // 投稿されたユーザー情報を一回だけ取得する
+    const [postedUser, setPostedUser] = useState({});
     useEffect(() => {
         const fetchUser = async () => {
             // クエリを使用してuserIdとusernameからユーザー情報を取得する
             const response = await axios.get(`/users?userId=${post.userId}`);
-            setUser(response.data);
+            setPostedUser(response.data);
         }
         fetchUser();
-    }, [])
+    }, [post.userId])
+
+    const handleLike = async () => {
+        try {
+            dispatch(likePost({ postId: post.id, userId: currentUser._id}))
+        } catch (err) {
+            console.log(err);
+        }
+        setLike(isLiked ? like - 1 : like + 1);
+        setIsLiked(!isLiked)
+    }
+
 
     return (
         <section className="post">
             <div className="post-wrapper">
                 <div className="post-top">
                     <div className="post-top-left__profile">
-                        <Link to={`/profile/${user.username}`}>
-                            <img src={`${PUBLIC_FOLDER}${user.profilePicture}`} alt="" className="post-top-left__profileImg" />
+                        <Link to={`/profile/${postedUser.username}`}>
+                            <img src={`${PUBLIC_FOLDER}${postedUser.profilePicture}`} alt="" className="post-top-left__profileImg" />
                         </Link>
-                        <span className="post-top-left__profileName">{user.username}</span>
+                        <span className="post-top-left__profileName">{postedUser.username}</span>
                         <span className="post-top-left__postedDate">{timeago.format(post.createdAt)}</span>
                     </div>
                     <div className="top-right__option">
