@@ -16,7 +16,12 @@ export default function Timeline({ username }) {
             const response = username 
                 ? await axios.get(`/posts/profile/${username}`) //プロフィール画面を表示した場合
                 : await axios.get(`/posts/timeline/${user._id}`); // ホーム画面を表示した場合
-            setPosts(response.data);
+            setPosts(
+                response.data.sort((post1, post2) => {
+                    return new Date(post2.createdAt) - new Date(post1.createdAt);
+                })
+            );
+    ;
         }
         fetchPosts();
     }, [username, user._id])
