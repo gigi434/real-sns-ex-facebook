@@ -12,10 +12,10 @@ export default function Rightbar({ user }) {
             <>
                 <div className="rightbar-event">
                     <div className="rightbar-event__list">
-                        <img src="assets/star.png" alt="" className="rightbar-event-list__starImg" />
+                        <img src={`${PUBLIC_FOLDER}/star.png`} alt="" className="rightbar-event-list__starImg" />
                         <span className="rightbar-event-list__text"><b>フォロワー限定</b>イベント開催中</span>
                     </div>
-                    <img src="assets/event.jpeg" alt="" className="rightbar-event__adImg" />
+                    <img src={`${PUBLIC_FOLDER}/event.jpeg`} alt="" className="rightbar-event__adImg" />
                 </div>
                 <div className="rightbar-onlineFriend">
                     <h4 className="rightbar-onlineFriend__title">オンラインの友達</h4>
@@ -29,15 +29,15 @@ export default function Rightbar({ user }) {
                     <p className="rightbar-promotion__title">プロモーション広告</p>
                     <div className="rightbar-promotion__list">
                         <div className="rightbar-promotion__item">
-                            <img src="assets/promotion/promotion1.jpeg" alt="" className="rightbar-promotion__img" />
+                            <img src={`${PUBLIC_FOLDER}/promotion/promotion1.jpeg`} alt="" className="rightbar-promotion__img" />
                             <p className="rightbar-promotion__name">ショッピング</p>
                         </div>
                         <div className="rightbar-promotion__item">
-                            <img src="assets/promotion/promotion2.jpeg" alt="" className="rightbar-promotion__img" />
+                            <img src={`${PUBLIC_FOLDER}/promotion/promotion2.jpeg`} alt="" className="rightbar-promotion__img" />
                             <p className="rightbar-promotion__name">カーショップ</p>
                         </div>
                         <div className="rightbar-promotion__item">
-                            <img src="assets/promotion/promotion3.jpeg" alt="" className="rightbar-promotion__img" />
+                            <img src={`${PUBLIC_FOLDER}/promotion/promotion3.jpeg`} alt="" className="rightbar-promotion__img" />
                             <p className="rightbar-promotion__name">ShinCode株式会社</p>
                         </div>
                     </div>

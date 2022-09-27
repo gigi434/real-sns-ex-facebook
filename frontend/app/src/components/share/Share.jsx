@@ -1,6 +1,6 @@
 import { Analytics, Face, Gif, Image } from "@mui/icons-material";
 import axios from "axios";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 import "./Share.css"
@@ -9,18 +9,31 @@ export default function Share() {
     const user = useSelector(state => state.auth.user);
     const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
     const desc = useRef();
+    const [file, setFile] = useState(null);
 
     const shareHandle = async (e) => {
         e.preventDefault();
+
         const newPost = {
             userId: user._id,
             desc: desc.current.value,
-            img: "",
-            likes: []
         };
+
+        if (file) {
+            const data = new FormData();
+            const fileName = Date.now() + file.name;
+            data.append("name", fileName);
+            data.append("file", file);
+            newPost.img = fileName;
+            try {
+                await axios.post("/upload", data);
+                window.location.reload();
+            } catch (err) {
+                console.log(err)
+            }
+        }
         try {
-            await axios.post("/", newPost);
-            window.location.reload();
+            await axios.post("/posts", newPost);
         } catch (err) {
             console.log(err)
         }
@@ -36,10 +49,11 @@ export default function Share() {
                 <hr className="hr"></hr>
                 <form className="button" onSubmit={(e) => shareHandle(e)}>
                     <div className="button-options">
-                        <div className="button-option">
+                        <label className="button-option" htmlFor="file">
                             <Image className="button-option__icon" htmlColor="blue"/>
                             <span className="button-option__text">写真</span>
-                        </div>
+                            <input type="file" id="file" accept=".png, .jpeg, jpg" style={{ display: "none"}} onChange={(e) => setFile(e.target.files[0])} />
+                        </label>
                         <div className="button-option">
                             <Gif className="button-option__icon" htmlColor="hotpink"/>
                             <span className="button-option__text">Gif</span>
