@@ -28,8 +28,9 @@ export default function Post({ post }) {
     }, [post.userId])
 
     const handleLike = async () => {
+        console.log(post._id, currentUser._id)
         try {
-            dispatch(likePost({ postId: post.id, userId: currentUser._id}))
+            dispatch(likePost({ postId: post._id, userId: currentUser._id}))
         } catch (err) {
             console.log(err);
         }
